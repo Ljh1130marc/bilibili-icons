@@ -24,9 +24,10 @@ if not isExists:
         os.makedirs('gif')
 OldIcons = json.load(open('index-icon.json',encoding='utf-8'))
 for a in NewIcons['fix']:
+    filename = 'gif/' + a['title'] + '.gif'
+    filesize = os.path.getsize(filename)
     for b in OldIcons['fix']:
-        filename = 'gif/' + a['title'] + '.gif'
-        filesize = os.path.getsize(filename)
+        NewTitle = False
         if not os.path.exists(filename) or filesize==0:
             f = open(filename, 'wb')
             if a['icon'][0:2] == '//':
@@ -36,7 +37,6 @@ for a in NewIcons['fix']:
             f.close()
             time.sleep(4)
         if a['title']==b['title']:
-            NewTitle = False
             for i in len(a):
                 if a['deltime']!=b['deltime'] or a['edittime']!=b['edittime'] or a['icon']!=b['icon'] or a['id']!=b['id'] or a['links']!=b['links'] or a['posttime']!=b['posttime'] or a['state']!=b['state'] or a['sttime']!=b['sttime'] or a['type']!=b['type'] or a['weight']!=b['weight']:
                     NewTitle=True
