@@ -37,9 +37,8 @@ for a in NewIcons['fix']:
             f.close()
             time.sleep(4)
         if a['title']==b['title']:
-            for i in len(a):
-                if a['deltime']!=b['deltime'] or a['edittime']!=b['edittime'] or a['icon']!=b['icon'] or a['id']!=b['id'] or a['links']!=b['links'] or a['posttime']!=b['posttime'] or a['state']!=b['state'] or a['sttime']!=b['sttime'] or a['type']!=b['type'] or a['weight']!=b['weight']:
-                    NewTitle=True
+            if a['deltime']!=b['deltime'] or a['edittime']!=b['edittime'] or a['icon']!=b['icon'] or a['id']!=b['id'] or a['links']!=b['links'] or a['posttime']!=b['posttime'] or a['state']!=b['state'] or a['sttime']!=b['sttime'] or a['type']!=b['type'] or a['weight']!=b['weight']:
+                NewTitle=True
     if NewTitle==True:
         f = open(filename, 'wb')
         if a['icon'][0:2] == '//':
